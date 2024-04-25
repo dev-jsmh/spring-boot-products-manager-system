@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!--
+
+    Jhonatan Samuel Martinez Hernandez 
+    Ficha 2675859
+    Análisis y Desarrollo De Software
+    Aprendiz SENA
+    Año 2024
+-->
+
+<head>
+    <title>Product Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script defer th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body>
+    <!--  ====================== barra de navegation ======================-->
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Systema gestion productos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@{/}">Gestionar productos</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ====================== container principal ====================== -->
+    <div class="container">
+        <a class=" mt-4 btn btn-success" th:href="@{/products/create}" >Añadir producto</a>
+        <h1 class="mt-4">Lista de productos</h1>
+
+        <!-- ====================== tabla de productos ======================-->
+        <table class="table table-dark table-striped table-hover mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Precio compra</th>
+                    <th scope="col">Precio venta</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- id producto -->
+                    <th scope="row">2</th>
+                    <!--  Nombre producto -->
+                    <td>Arina Pan</td>
+                    <!-- Modelo producto -->
+                    <td>500gr</td>
+                    <!-- precio compra producto -->
+                    <td>2.800$</td>
+                    <!-- precio venta producto -->
+                    <td>3.200$</td>
+                    <!-- producto disponible -->
+                    <td>3</td>
+                    <!-- Campo de acciones  -->
+                    <td>
+                        
+                        <!-- ==== ver detalles ==== -->
+                        <button class="btn btn-info">
+                            detalles
+                        </button>
+                        
+                    </td>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <!-- id producto -->
+                    <th th:text="${product.id}" scope="row"></th>
+                    <!--  Nombre producto -->
+                    <td th:text="${product.name}"> </td>
+                    <!-- Modelo producto -->
+                    <td th:text="${product.model}"></td>
+                    <!-- precio compra producto -->
+                    <td>2.800$</td>
+                    <!-- precio venta producto -->
+                    <td>3.200$</td>
+                    <!-- producto disponible -->
+                    <td th:text="${product.stock}"></td>
+                    <!-- Campo de acciones  -->
+                    <td>
+                        
+                        <!-- ==== ver detalles ==== -->
+                        <!-- ==== hago uso de un atributo th: href  para una url dinamica con el id del producto y lograr dirigir el ususario a la vista de los detalles ==== -->
+                        <a class="btn btn-info" th:href="@{ '/products/' + ${product.id} + '/details'}">
+                            detalles
+                        </a>
+                        
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+</body>
+<!--
+
+    Jhonatan Samuel Martinez Hernandez 
+    Ficha 2675859
+    Análisis y Desarrollo De Software
+    Aprendiz SENA
+    Año 2024
+-->
+
+</html>

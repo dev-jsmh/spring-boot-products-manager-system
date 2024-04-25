@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!--
+
+    Jhonatan Samuel Martinez Hernandez 
+    Ficha 2675859
+    Análisis y Desarrollo De Software
+    Aprendiz SENA
+    Año 2024
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ========== BOOTSTRAP CSS ========== -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/icons/font/bootstrap-icons.css}">
+    <!-- ========== BOOTSTRAP JAVASCRIPT ========== -->
+    <script defer th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Detalles del producto</h1>
+        <div class="">
+            <div class="card col-sm-12 col-md-10 col-lg-6">
+                <div class="card-dialog">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <img th:src="@{images/purificador_1.jpeg}" style="height: 100px; width: 200px;">
+                                <!-- ===================== Action button container ===================== -->
+                                <div class="my-3">
+                                    <!-- ==== editar ==== -->
+                                    <button type="button" class="btn btn-warning" data-bs-target="#modify_product"
+                                        data-bs-toggle="modal">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <!-- ==== borrar ==== -->
+                                    <button type="button" class="btn btn-danger" data-bs-target="#delete_product"
+                                        data-bs-toggle="modal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                                <!-- nombre producto -->
+                                <div th:text="'Id: ' + ${product.id}"></div>
+                                <div th:text="'Nombre: ' + ${product.name}"></div>
+                                <!-- product model -->
+                                <div th:text="'Modelo: ' + ${product.model}"></div>
+                                <!-- product purchase price -->
+                                <div th:text="'Precio compra: ' + ${product.purchase_price}"></div>
+                                <!-- product sales price -->
+                                <div th:text="'Precio venta: ' + ${product.sale_price}"></div>
+                                <!-- product stock -->
+                                <div th:text="'Disponibilidad: ' + ${product.stock}"></div>
+                                <!-- product description -->
+                                <p th:text="'Descripción: ' + ${product.description}"></p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- =========================== delete product modal view =========================== -->
+    <div class="modal fade " id="delete_product" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <h5 class="modal-title mb-2 text-center">¿ Esta seguro de querer eliminar el producto ? </h5>
+                    <!-- info del producto -->
+                    <div th:text="'Nombre: ' + ${product.name}"></div>
+                    <div th:text="'Modelo: ' + ${product.model}"></div>
+                    <div th:text="'Precio compra: ' + ${product.purchase_price}"></div>
+                    <div th:text="'Precio venta: ' + ${product.sale_price}"></div>
+                </div>
+                <div class="modal-footer justify-content-center">
+
+                    <form th:action="@{ '/products/' + ${product.id} + '/delete'}" method="get">
+                        <button type="submit">delete</button>
+                    </form>
+
+                    <button type="button" class="btn btn-secondary col-4">si</button>
+                    <button type="button" class="btn btn-primary col-4" data-bs-dismiss="modal">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========================== delete product modal view =========================== -->
+    <div class="modal fade " id="modify_product" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <h5 class="modal-title mb-2 text-center">¿ Desea modificar la información actual del producto ?
+                    </h5>
+                    <!-- info del producto -->
+                    <div th:text="'Id: ' + ${product.id}"></div>
+                    <div th:text="'Nombre: ' + ${product.name}"></div>
+                    <div th:text="'Modelo: ' + ${product.model}"></div>
+                    <div th:text="'Precio compra: ' + ${product.purchase_price}"></div>
+                    <div th:text="'Precio venta: ' + ${product.sale_price}"></div>
+                    <!-- product stock -->
+                    <div th:text="'Disponibilidad: ' + ${product.stock}"></div>
+                    <!-- product description -->
+                    <p th:text="'Descripción: ' + ${product.description}"></p>
+
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a th:href="@{edit}" type="button" class="btn btn-secondary col-4">si</a>
+                    <button type="button" class="btn btn-primary col-4" data-bs-dismiss="modal">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!--
+
+    Jhonatan Samuel Martinez Hernandez 
+    Ficha 2675859
+    Análisis y Desarrollo De Software
+    Aprendiz SENA
+    Año 2024
+-->
+
+</html>
