@@ -16,21 +16,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ========== BOOTSTRAP CSS ========== -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- ========== BOOTSTRAP ICONS ========== -->
+    <link rel="stylesheet" th:href="@{/icons/font/bootstrap-icons.css}">
     <!-- ========== BOOTSTRAP JAVASCRIPT ========== -->
     <script defer th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
 </head>
 
 <body>
+    <!-- =================== back button inside a navigation bar =================== -->
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" th:href="@{/products/list}">
+                <i class="bi bi-arrow-left" style="font-weight: 400;"></i>
+            </a>
+
+
+        </div>
+    </nav>
+    <!-- =================== back button inside a navigation bar =================== -->
+
     <div class="container">
-        <h1>Modificar Producto</h1>
+        <h1 class="mt-3">Modificar Producto</h1>
         <div class="col-md-10 col-lg-6">
             <div class="card">
                 <div class="card-body">
 
                     <!-- ======================= formulario para crear o modificar un producto ======================= -->
                     <!-- in the "action" attribute field I make a Post request to "products/save" endpoint so the data will be save in the data base -->
-                    <form class="form-group" th:action="@{'/products/' + ${id} + '/edit'}" method="post" th:object="${product}">
+                    <form class="form-group" th:action="@{'/products/' + ${id} + '/edit'}" method="post"
+                        th:object="${product}">
                         <!-- ================ identificación producto ================ -->
                         <div class="mb-3">
                             <label for="product_id">Id</label>
@@ -74,7 +90,7 @@
                         <!-- ================ Action buttons section ================ -->
                         <div class="justify-content-center">
                             <button class="btn btn-secondary" type="submit">continuar</button>
-                            <a class="btn btn-primary">cancelar</a>
+                            <a class="btn btn-primary" th:href="@{/products/list}">cancelar</a>
 
                         </div>
 
@@ -85,6 +101,9 @@
             </div>
         </div>
     </div>
+    <!-- ========== MY SCRIPT ========== -->
+    <script th:src="@{/js/welcome.js}"></script>
+
 </body>
 <!--
 

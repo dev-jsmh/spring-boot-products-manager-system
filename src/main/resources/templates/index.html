@@ -14,39 +14,58 @@
     <title>Product Management System</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- ========== BOOTSTRAP CSS ========== -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- ========== BOOTSTRAP ICONS ========== -->
+    <link rel="stylesheet" th:href="@{/icons/font/bootstrap-icons.css}">
+    <!-- ========== BOOTSTRAP JAVASCRIPT ========== -->
     <script defer th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+
 </head>
 
 <body>
     <!--  ====================== barra de navegation ======================-->
     <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">Systema gestion productos</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <a class="navbar-brand" th:href="@{/products/list}">Systema gestion productos</a>
+
+<!--
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="@{/}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/products/list}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="@{/}">Gestionar productos</a>
-                    </li>
-
                 </ul>
             </div>
+
+        -->
         </div>
     </nav>
     <!-- ====================== container principal ====================== -->
-    <div class="container">
+    <div class="container text-center">
         <h1 class="mt-4">systema para gestion de productos</h1>
-        <h3>By Jhonatan Samuel Martinez Hernandez</h3>
-        <!-- ====================== tabla de productos ======================-->
+        <!-- ====================== Mis datos de presentación como Estudiante ====================== -->
+        <div class="my-3">
+            <h3>By Jhonatan Samuel Martinez Hernandez</h3>
+            <p>Analisis y Desarrollo de Software</p>
+            <p>Ficha: 2675859</p>
+            <p>Centro de Comercio y Turismo - Regional Quindio</p>
 
+        </div>
+        <!-- ====================== go to productos manager module ======================-->
+        <p>Presione el boton de abajo para administrar los productos. </p>
+        <a class="btn btn-success" th:href="@{/products/list}">Administrar productos</a>
     </div>
+    <!-- ========== MY SCRIPT ========== -->
+ <script th:src="@{/js/welcome.js}"></script>
+
 </body>
 <!--
 

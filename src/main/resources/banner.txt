@@ -1,0 +1,20 @@
+${AnsiColor.GREEN}
+============================================================
+/
+/  Product Manager System 
+
+/  Spring Boot + Thymeleaf + MariaDB + Bootstrap
+
+/  By Jhonatan Samuel Martinez Hernandez
+/
+/  Analyst and Software Developer
+/
+/  Year 2024
+/
+/  Titulo: ${application.title}
+/  Version: ${application.version}
+/  Nombre: ${application.name}
+/  Spring Boot: ${spring-boot.formatted-version}
+
+============================================================
+${AnsiColor.DEFAULT}

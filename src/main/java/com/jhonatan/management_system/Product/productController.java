@@ -32,16 +32,9 @@ public class ProductController {
     public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
         this.productService = productService;
-    }
-
-    ;
+    };
    
-    // ========================== home view for all system ( index page ) ==========================
-    @RequestMapping(value = "/home")
-    public String index() {
-        return "index";
-    }
-
+    
     // ========================== product table view  ==========================
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String product_list(Model model) {
@@ -49,7 +42,7 @@ public class ProductController {
         return "products";
     }
 
-    // ========================== detail view for products ==========================
+    // ========================== Get detail view for products ==========================
     @GetMapping("/{id}/details")
     public String productDetails(
             // get variable form url
@@ -65,7 +58,7 @@ public class ProductController {
     }
 
     ;
-    // ========================== create product new products ==========================
+    // ========================== Get create product new products ==========================
 
     @GetMapping("/create")
     public String createNewProduct(Model model) {
@@ -77,7 +70,7 @@ public class ProductController {
     }
 
     ;
-    // ========================== save product data to data base ==========================
+    // ========================== Post save product data to data base ==========================
 
   @PostMapping("/create")
     public String saveProduct(@ModelAttribute ProductModel newProduct) {
@@ -108,14 +101,16 @@ public class ProductController {
         return "editProduct";
     }
 
-    // ========================== save modifed product method ==========================
+    // ========================== Post save modifed product method ==========================
     @PostMapping("/{id}/edit")
     // get the product id from the url and pass it alogn side with a model object as parameters
     public String saveEditProductInfo(@PathVariable("id") Long id, @ModelAttribute("product") ProductModel editedProduct) {
         try {
-            
+            // get product by its id from data base and store it in a variable 
            ProductModel desiredProduct = this.productRepository.findById(id).get();
            
+           // use the product object modified in the form view and set its attributes to 
+           // the user previously fetched from data base
            desiredProduct.setName(editedProduct.getName());
            desiredProduct.setModel(editedProduct.getModel());
            desiredProduct.setPurchase_price(editedProduct.getPurchase_price());
@@ -123,20 +118,20 @@ public class ProductController {
            desiredProduct.setStock( editedProduct.getStock());
            desiredProduct.setDescription(editedProduct.getDescription());
             
-            
-            // usamos la clase modelo como parametro y el id del producto
-            // buscamos el producto en inventario 
+           // save data of modified product object again to data base
            this.productRepository.save(desiredProduct);
 
             // retornamos la vista correspondiente al formulario para editar la información
             return "redirect:/products/list";
+            // if error happends catch it and show error message
         } catch (Exception ex) {
             throw new RuntimeException("Could not save modify data of product.. ", ex);
         }
 
     }
-    // ========================== delete product method ==========================
+    // ========================== Get delete product method ==========================
 
+    // makes a get request as a method to triger this end-point and pass user to delete it from data base
     @GetMapping("{id}/delete")
     // get the product id from the url and pass it alogn side with a model object as parameters
     public String deleteProduct(@PathVariable("id") Long id) {
