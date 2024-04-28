@@ -12,9 +12,6 @@ Ficha: 2675859
 SENA – Centro de Comercio y Turismo
 Abril 2024
 
-Instructor: 
-Carlos Alberto Fuel Tulcan
-
 
 Este proyecto es basado el algunos requerimientos que he desarrollado para mi proyecto final de software. 
 
