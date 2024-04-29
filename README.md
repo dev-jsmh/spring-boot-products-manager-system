@@ -27,4 +27,6 @@ Las funciones que se pueden ejecturar son:
 
 
 Nota:
-En la carpeta "db" que se encuentra en la raiz del projecto encontrará una el script de la base de datos que podra utilizar para generar una copia local en su computadora para la ejecución del projecto. Aunque, spring boot le genera la DB de manera automatica al momento de correr el projecto.
+En la carpeta "db" que se encuentra en la raiz del projecto encontrará el script de la base de datos que podra utilizar para generar una copia local en su computadora para la ejecución del projecto. Aunque, spring boot le genera la DB de manera automatica al momento de correr el projecto.
+
+Adicionalmente, he incluido una version exejutable con extención .jar en la carpeta "compiled-project" ubicada en la raiz del proyecto.
