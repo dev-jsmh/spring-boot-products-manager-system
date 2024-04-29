@@ -18,7 +18,7 @@ Carlos Alberto Fuel Tulcan
 
 Este proyecto es basado el algunos requerimientos que he desarrollado para mi proyecto final de software. 
 
-El presente projecto, lo he desarrollando usando el framework de Java Spring Boot junto con el motor de base de datos MariaDb para el back-end, y el motor de plantillas Thymeleaf junto con Bootstrap para el front-end.
+El presente projecto, lo he desarrollando usando el framework de Java Spring Boot 3 junto con el motor de base de datos MariaDb para el back-end. En cuanto al front-end hice uso del motor de plantillas Thymeleaf junto con Bootstrap 5.3. La version de Java SDK 17.0.10 fue la utilizada para el desarollo del programa.
 
 Las funciones que se pueden ejecturar son: 
 

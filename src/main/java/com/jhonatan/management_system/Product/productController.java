@@ -110,7 +110,7 @@ public class ProductController {
            ProductModel desiredProduct = this.productRepository.findById(id).get();
            
            // use the product object modified in the form view and set its attributes to 
-           // the user previously fetched from data base
+           // the product previously fetched from data base
            desiredProduct.setName(editedProduct.getName());
            desiredProduct.setModel(editedProduct.getModel());
            desiredProduct.setPurchase_price(editedProduct.getPurchase_price());
@@ -131,7 +131,7 @@ public class ProductController {
     }
     // ========================== Get delete product method ==========================
 
-    // makes a get request as a method to triger this end-point and pass user to delete it from data base
+    // makes a get request as a method to triger this end-point and passes product id to delete it from data base
     @GetMapping("{id}/delete")
     // get the product id from the url and pass it alogn side with a model object as parameters
     public String deleteProduct(@PathVariable("id") Long id) {
