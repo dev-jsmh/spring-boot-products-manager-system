@@ -39,12 +39,12 @@ Las funciones que se pueden ejecturar son:
 
 * Vista Crear Nuevo Producto
 
-![crear_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/7857062a-bfd1-4219-a35a-0762c5e36a3d)
+![crear_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/1fc5c511-347e-43c3-9ffe-4f4fa6562e8c)
 
 
 * Vista Detalles del Producto
 
-![detalles_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/eb58313f-6859-424b-9103-6def812270e9)
+![detalles_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/f8da8d3c-a1ba-49bf-bc32-9830cf1a57a6)
 
 
 * Vista Modificar Productos
@@ -52,9 +52,9 @@ Las funciones que se pueden ejecturar son:
 ![modificar_product](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/edb5161f-d49b-48d4-b659-c4286411dbe4)
 
 
-* Vista Modal Confirmación Eliminar Producto
+* Vista Modal Eliminar Producto
 
-![eliminar_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/566deb05-3cfc-41d7-89da-c0883bd059f9)
+![eliminar_producto](https://github.com/dev-jsmh/spring-boot-products-manager-system-/assets/112201008/56f7d451-83e6-4435-97e6-112157213970)
 
 
 * Vista Modal Confirmación Modificar Datos del Producto
