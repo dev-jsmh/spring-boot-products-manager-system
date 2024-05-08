@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+ *
+ * Jhonatan Samuel Martinez Hernandez
+ * Ficha 2675859
+ * Análisis y Desarrollo De Software
+ * Aprendiz SENA
+ * Año 2024
+ *
+-->
+<html>
+
+<head>
+    <title>Inicio || Modulo proveedores </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ========== BOOTSTRAP CSS ========== -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- ========== BOOTSTRAP ICONS ========== -->
+    <link rel="stylesheet" th:href="@{/icons/font/bootstrap-icons.css}">
+    <!-- ========== BOOTSTRAP JAVASCRIPT ========== -->
+    <script defer th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</head>
+
+<!-- =================== back button inside a navigation bar =================== -->
+<nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" th:href="@{/}">
+            <i class="bi bi-arrow-left" style="font-weight: 400;"></i>
+        </a>
+        <h4 style="color:white">Modulo Gestion de Proveedores</h4>
+
+
+    </div>
+</nav>
+<!-- =================== back button inside a navigation bar =================== -->
+
+<body>
+    <div class="container">
+        <div class="row my-4">
+            <!--- create a card element that will containt the form to create providers -->
+            <div class="card col-12 col-md-4">
+                <div class="card-dialog">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4>Añadir Proveedor</h4>
+                        </div>
+                        <div class="card-body">
+                            <!--  ================= formulario para registrar nuevos proveedores ================= -->
+                            <form class="form-group" th:action="@{/providers/create}" method="post"
+                                th:object="${provider}">
+                                <div class="mb-3">
+                                    <label class="form-label" for="provider_name">Nombre y apellido</label>
+                                    <input class="form-control" type="text" id="provider_name" th:field="*{name}"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="provider_address">Direccion</label>
+                                    <input class="form-control" type="text" id="provider_address" th:field="*{address}"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="provider_phone">Teléfono</label>
+                                    <input class="form-control" type="text" id="provider_phone" th:field="*{phone}"
+                                        requerid minlength="10">
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary" type="submit">Añadir</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- providers list -->
+            <div class="col-12 col-md-8">
+                <h3>Lista de Proveedores</h3>
+                <div class="scrollable"
+                    style="height: 500px; overflow-y: scroll; border: 3px solid rgb(176, 179, 176);">
+                    <div class="card m-2" th:each="provider : ${providersList}">
+                        <!-- provider id -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 col-md-3 mb-2">
+                                    <p>Id: <span th:text="${provider.id}"></span></p>
+                                    <p>Telefono: <span th:text="${provider.phone}"></span></p>
+                                </div>
+                                <div class="col-6 col-md-5 mb-2">
+                                    <p>Nombre: <span th:text="${provider.name}"></span></p>
+                                    <p>Dirección: <span th:text="${provider.address}"></span></p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="align-items-center">
+
+                                        <!-- modify button -->
+                                        <a class="btn btn-primary m-2"
+                                            th:href="@{'/providers/' + ${provider.id} + '/edit' }">Modificar</a>
+                                        <!-- use a form to perfome the delete action  -->
+                                        <form class="col m-2" th:action="@{'/providers/' + ${provider.id} + '/delete'}"
+                                            method="get">
+                                            <button class="btn btn-warning" type="submit">Borrar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== MY SCRIPT ========== -->
+    <script th:src="@{/js/welcome.js}"></script>
+
+</body>
+
+</html>
+<!--
+ *
+ * Jhonatan Samuel Martinez Hernandez
+ * Ficha 2675859
+ * Análisis y Desarrollo De Software
+ * Aprendiz SENA
+ * Año 2024
+ *
+-->

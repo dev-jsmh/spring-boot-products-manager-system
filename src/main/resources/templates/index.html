@@ -11,7 +11,7 @@
 -->
 
 <head>
-    <title>Product Management System</title>
+    <title>Business Processes Management System</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ========== BOOTSTRAP CSS ========== -->
@@ -29,7 +29,7 @@
     <!--  ====================== barra de navegation ======================-->
     <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/products/list}">Systema gestion productos</a>
+            <a class="navbar-brand" th:href="@{/products/list}">Systema para Gestion de Procesos de Negocio</a>
 
 <!--
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,7 +50,8 @@
     </nav>
     <!-- ====================== container principal ====================== -->
     <div class="container text-center">
-        <h1 class="mt-4">systema para gestion de productos</h1>
+        <h1 class="mt-4">Bienvenidos</h1>
+        <h3>Este es el sistema para gestion de procesos del negocio</h3>
         <!-- ====================== Mis datos de presentación como Estudiante ====================== -->
         <div class="my-3">
             <h3>By Jhonatan Samuel Martinez Hernandez</h3>
@@ -59,9 +60,14 @@
             <p>Centro de Comercio y Turismo - Regional Quindio</p>
 
         </div>
+
+        <p>Seleccione el área a la que pertenece.</p>
         <!-- ====================== go to productos manager module ======================-->
-        <p>Presione el boton de abajo para administrar los productos. </p>
-        <a class="btn btn-success" th:href="@{/products/list}">Administrar productos</a>
+        <a class="btn btn-primary py-2 px-4" th:href="@{/products/list}">Administrar productos</a>
+
+        <!-- ====================== go to providers manager module ======================-->
+        <a class="btn btn-primary py-2 px-4" th:href="@{/providers/table}">Proveedores</a>
+   
     </div>
     <!-- ========== MY SCRIPT ========== -->
  <script th:src="@{/js/welcome.js}"></script>

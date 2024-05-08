@@ -6,7 +6,7 @@
  */
 
  console.log("==================================================");
- console.log(" Systema para Administración de Productos");
+ console.log(" Systema para gestion de procesos de negocio ");
 
  console.log(" Welcome");
  console.log(" by Jhonatan Samuel Martinez Hernandez.");
